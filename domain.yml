@@ -1,0 +1,98 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - inform
+  - search_provider
+  - search_application
+
+actions:
+  - utter_greet
+  - utter_cheer_up
+  - utter_did_that_help
+  - utter_happy
+  - utter_goodbye
+  - utter_ask_location
+  - utter_ask_user_windows_tag
+  - action_facility_search
+  - action_application_search
+
+entities:
+  - location
+  - facility_type
+  - application
+  - asset_tag
+
+slots:
+  location:
+      type: text
+      influence_conversation: true
+      mappings:
+        - type: from_entity
+          entity: location
+  facility_type:
+      type: text
+      influence_conversation: true
+      mappings:
+        - type: from_entity
+          entity: facility_type
+  address:
+      type: text
+      influence_conversation: true
+      mappings:
+        - type: custom
+  application:
+      type: text
+      influence_conversation: true
+      mappings:
+        - type: from_entity
+          entity: application
+  asset_tag:
+      type: text
+      influence_conversation: true
+      mappings:
+        - type: from_entity
+          entity: asset_tag
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_how_can_i_help:
+  - text: "Hello. I'm GADA. How can i assit you"
+  - text: "Hi. My name is GADA. How can i assit you today?"
+
+  utter_ask_location:
+  - text: "can you provide location please"
+  - text: "To find the nearest {facility_type} I need your address"
+
+  utter_ask_user_windows_tag:
+  - text: "can you provide me with your Windows tag number which starts with EX91X"
+  - text: "To help you with {application} I need your Windows tag number which starts with EX91X"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

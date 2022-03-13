@@ -1,0 +1,81 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: search hospital happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_provider
+    entities:
+      - location: "Jeddah"
+      - facility_type: "hospital"
+  - action: action_facility_search
+  - slot_was_set:
+    - address: null
+  - intent: affirm
+  - action: utter_goodbye
+
+
+- story: search hospital + location happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_provider
+    entities:
+      - facility_type: "hospital"
+  - action: utter_ask_location
+  - intent: inform
+    entities:
+      - location: "Jeddah"
+  - action: action_facility_search
+  - slot_was_set:
+    - address: null
+  - intent: affirm
+  - action: utter_goodbye
+
+
+- story: search application matlab happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_application
+    entities:
+      - application: "matlab"
+      - application: "sas"
+  - action: utter_ask_user_windows_tag
+  - intent: inform
+    entities:
+      - asset_tag: "ex91x"
+  - action: action_application_search
+  - slot_was_set:
+    - application: "Matlab"
+  - intent: affirm
+  - action: utter_goodbye

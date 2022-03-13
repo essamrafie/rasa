@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-application",
+      "2": "I-application",
+      "3": "L-application",
+      "4": "U-application",
+      "5": "B-asset_tag",
+      "6": "I-asset_tag",
+      "7": "L-asset_tag",
+      "8": "U-asset_tag",
+      "9": "B-facility_type",
+      "10": "I-facility_type",
+      "11": "L-facility_type",
+      "12": "U-facility_type",
+      "13": "B-location",
+      "14": "I-location",
+      "15": "L-location",
+      "16": "U-location",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-application": 1,
+      "I-application": 2,
+      "L-application": 3,
+      "U-application": 4,
+      "B-asset_tag": 5,
+      "I-asset_tag": 6,
+      "L-asset_tag": 7,
+      "U-asset_tag": 8,
+      "B-facility_type": 9,
+      "I-facility_type": 10,
+      "L-facility_type": 11,
+      "U-facility_type": 12,
+      "B-location": 13,
+      "I-location": 14,
+      "L-location": 15,
+      "U-location": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]
